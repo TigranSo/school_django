@@ -1,0 +1,78 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mentor Bootstrap Template - Index</title>
+    <link href="/img/favicon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link  href="{% static '/css/style.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+          <h1 class="logo me-auto"><a href="/">Школа</a></h1>
+          <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+              <li><a class="active" href="{% url 'index' %}">Главная</a></li>
+              <li><a href="{% url 'courses' %}">Занятия</a></li>
+              <li><a href="{% url 'trainers' %}">Учители</a></li>
+              <li><a href="{% url 'about' %}">О нас</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+          <a href="{% url 'courses' %}" class="get-started-btn">Записаться</a>
+        </div>
+      </header>
+
+    {% for message in messages %}
+      <div class="message container">
+          <div class="alert alert-success" role="alert">
+              {{ message }}
+          </div>
+      </div>
+    {% endfor %}
+
+    
+
+    {% block content %}{% endblock content %}
+    <br><br><br><br><br>
+
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+    
+          <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">
+              &copy; Телефон<strong><span> 8928 895 31 56 </span></strong>&nbsp; E-mail <span>isa_2310@bk.ru</span>
+            </div>
+            <div class="credits">
+
+              График и время работы <a href="/">8:00 - 18:00</a>&nbsp;&nbsp;Выходной день- воскресенье
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+
+    <script src="{% static '/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static '/vendor/aos/aos.js' %}"></script>
+    <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static '/vendor/php-email-form/validate.js' %}"></script>
+
+    <script src="{% static '/js/main.js' %}" ></script>
+  </body>
+</html>

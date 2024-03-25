@@ -1,0 +1,42 @@
+{% extends 'school/base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}  
+
+
+  <main id="main" data-aos="fade-in">
+
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Педагогический состав</h2>
+      </div>
+    </div>
+
+    <section id="trainers" class="trainers">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          {% for teach in teacher %}
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member">
+                <img src="{{ teach.img_main.url }}" class="img-fluid img_teachder" alt="">
+                <div class="member-content">
+                  <h4>{{ teach.name }}</h4>
+                  <span>{{ teach.name_prof }}</span>
+                  <p>
+                    {{ teach.description|truncatechars:200 }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+{% endblock content %}

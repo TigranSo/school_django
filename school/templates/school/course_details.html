@@ -1,0 +1,172 @@
+{% extends 'school/base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}  
+
+  <main id="main">
+    {% for message in messages %}
+      <div class="message container">
+          <div class="alert alert-success" role="alert">
+              {{ message }}
+          </div>
+      </div>
+  {% endfor %}
+
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h1>{{ activity.zanyat }}</h1>
+
+      </div>
+    </div>
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8">
+            <img src="{{ activity.img_main.url }}"" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-4">
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Учитель</h5>
+              <p>
+                <span>{{ activity.teacher }}</span>
+              </p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Цена</h5>
+              <p>{{ activity.price }} руб.</p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Время занятия</h5>
+              <ul>
+                {% for item in schedule %}
+                  <li>{{ item.date }} в {{ item.time }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <input type="submit" class="btn btn-success" value="Записаться" id="openModalBtn">
+
+              <div id="myModal" class="modal">
+                  <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <form method="post" class="form" action="{% url 'handle_reservation' pk=activity.pk %}">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% buttons %}<br>
+                            <input type="submit" value="Записаться" class="btn btn-success" id="openModalBtn">
+                        {% endbuttons %}
+                    </form>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <div class="container m-4">
+      <h2>{{ activity.name }}</h2>
+      <p>{{ activity.description }}</p>
+    </div>
+    
+
+    <section id="cource-details-tabs" class="cource-details-tabs">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Фото1 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Фото 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Фото 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Фото 4</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Фото 5</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    {% if activity.img_1 %}
+                      <img src="{{ activity.img_1.url }}" class="img-fluid" alt="">
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+            
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    {% if activity.img_2 %}
+                    <p><img src="{{ activity.img_2.url }}" class="img-fluid" alt=""></p>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    {% if activity.img_3 %}
+                    <p><img src="{{ activity.img_3.url }}" class="img-fluid" alt=""></p>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/course-details-tab-3.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    {% if activity.img_4 %}
+                    <p><img src="{{ activity.img_4.url }}" class="img-fluid" alt=""></p>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    {% if activity.img_5 %}
+                    <p><img src="{{ activity.img_5.url }}" class="img-fluid" alt=""></p>
+                    {% endif %}
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'school/base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}  
+
+
+  <main id="main" data-aos="fade-in">
+
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Онлайн запись на занятии</h2>
+        <p></p>
+      </div>
+    </div>
+
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          {% for activ in activity %}
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                  <div class="course-item">
+                      <a href="{% url 'course_details' activ.pk %}"><img src="{{ activ.img_main.url }}" class="img-fluid" alt="..."></a>
+                      <div class="course-content">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>{{ activ.zanyat  }}</h4>
+                          <p class="price">{{ activ.price }} руб.</p>
+                      </div>
+                          <h3><a href="{% url 'course_details' activ.pk %}">{{ activ.name }}</a></h3>
+                          <p>{{ activ.description|truncatechars:100 }}</p>
+                          <div class="trainer d-flex justify-content-between align-items-center">
+                              <div class="trainer-profile d-flex align-items-center">
+                              <img src="{{ activ.teacher.img_main.url }}" class="img-fluid" alt="">
+                              <span>{{ activ.teacher }}</span>
+                              </div>
+                          </div>
+                      
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+
+      </div>
+    </section>
+
+  </main>
+{% endblock content %}

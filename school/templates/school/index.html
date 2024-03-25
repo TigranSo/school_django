@@ -1,0 +1,160 @@
+{% extends 'school/base.html' %}
+
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}  
+
+<section id="hero" class="d-flex justify-content-center align-items-center">
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+    <h1>
+        Муниципальное бюджетное общеобразовательное учреждение<br> "Хаттунинская средняя <br>общеобразовательная школа"
+    </h1>
+    <a href="{% url 'courses' %}" class="btn-get-started">записаться на занятия</a>
+    </div>
+</section>
+
+<main id="main">
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+        <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'img/s.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <p class="fst-italic">
+                МБОУ «Хаттунинская СОШ» - образовательное учреждение, ориентированное на подготовку обучающихся к активному интеллектуальному труду, творческой и исследовательской деятельности в различных областях наук на основе интеграции содержания гуманитарного образования.
+            </p>
+            <ul>
+                <li><i class="bi bi-check-circle"></i> Полное наименование: Муниципальное бюджетное общеобразовательное учреждение "Хаттунинская средняя общеобразовательная школа"</li>
+                <li><i class="bi bi-check-circle"></i> Краткое наименование: МБОУ "Хаттунинская СОШ"</li>
+                <li><i class="bi bi-check-circle"></i> Дата создания ОУ: 10.12.1979</li>
+                <li><i class="bi bi-check-circle"></i> Дата государственной регистрации: 18.08.2009</li>
+                <li><i class="bi bi-check-circle"></i> Языки, на которых осуществляется обучение: Русский, Чеченский</li>
+                <li><i class="bi bi-check-circle"></i> Форма обучения: Очная</li>
+                <li><i class="bi bi-check-circle"></i> Юридический адрес: 366343 Веденский р-он, с. Хаттуни,ЧР, ул. К.Х.Кишиева№4</li>
+            </ul>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-3 col-md-4">
+            <div class="icon-box">
+                <i class="ri-store-line" style="color: #ffbb2c;"></i>
+                <h3><a href="">Lorem Ipsum</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+                <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+                <h3><a href="">Dolor Sitema</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+                <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+                <h3><a href="">Sed perspiciatis</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+                <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+                <h3><a href="">Magni Dolores</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-database-2-line" style="color: #47aeff;"></i>
+                <h3><a href="">Nemo Enim</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+                <h3><a href="">Eiusmod Tempor</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+                <h3><a href="">Midela Teren</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+                <h3><a href="">Pira Neve</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-anchor-line" style="color: #b2904f;"></i>
+                <h3><a href="">Dirada Pack</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-disc-line" style="color: #b20969;"></i>
+                <h3><a href="">Moton Ideal</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-base-station-line" style="color: #ff5828;"></i>
+                <h3><a href="">Verdo Park</a></h3>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+                <h3><a href="">Flavor Nivelanda</a></h3>
+            </div>
+            </div>
+        </div>
+
+        </div>
+    </section> -->
+
+    <section id="popular-courses" class="courses">
+        <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Занятия</h2>
+            <p>Популярные</p>
+        </div>
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            {% for activ in activity %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                        <a href="{% url 'course_details' activ.pk %}"><img src="{{ activ.img_main.url }}" class="img-fluid" alt="..."></a>
+                        <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>{{ activ.zanyat  }}</h4>
+                            <p class="price">{{ activ.price }} руб.</p>
+                        </div>
+                            <h3><a href="{% url 'course_details' activ.pk %}">{{ activ.name }}</a></h3>
+                            <p>{{ activ.description|truncatechars:100 }}</p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                <img src="{{ activ.teacher.img_main.url }}" class="img-fluid" alt="">
+                                <span>{{ activ.teacher }}</span>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </section>
+    </main>
+
+{% endblock content %}
